@@ -199,7 +199,7 @@ func getDefaultMiddlewares[TReqBody, TGetParams, TRespBody any]() []func(hFunc f
 
 func main() {
 	loggingHandler := slog.NewJSONHandler(os.Stdout, nil)
-	logger := slog.New(loggingHandler)
+	logger := slog.New(loggingHandler).WithGroup("fields")
 
 	mux := http.NewServeMux()
 
@@ -208,21 +208,21 @@ func main() {
 		log.Fatal(err)
 	}
 
-	mux.Handle("GET /ping", &ggh.Uitzicht[ExampleAppServiceProvider, struct{}, PingGetParams, PingResponse, ExampleAppErrorData]{
+	mux.Handle("GET /ping", &ggh.GGHandler[ExampleAppServiceProvider, struct{}, PingGetParams, PingResponse, ExampleAppErrorData]{
 		ServiceProvider: sp,
 		HandlerFunc:     HandlePing,
 		Middlewares:     getDefaultMiddlewares[struct{}, PingGetParams, PingResponse](),
 		Logger:          logger,
 	})
 
-	mux.Handle("POST /set_value", &ggh.Uitzicht[ExampleAppServiceProvider, SetValueRequest, struct{}, SetValueResponse, ExampleAppErrorData]{
+	mux.Handle("POST /set_value", &ggh.GGHandler[ExampleAppServiceProvider, SetValueRequest, struct{}, SetValueResponse, ExampleAppErrorData]{
 		ServiceProvider: sp,
 		HandlerFunc:     HandleSetValue,
 		Middlewares:     getDefaultMiddlewares[SetValueRequest, struct{}, SetValueResponse](),
 		Logger:          logger,
 	})
 
-	mux.Handle("GET /get_value/{key}", &ggh.Uitzicht[ExampleAppServiceProvider, struct{}, struct{}, GetValueResponse, ExampleAppErrorData]{
+	mux.Handle("GET /get_value/{key}", &ggh.GGHandler[ExampleAppServiceProvider, struct{}, struct{}, GetValueResponse, ExampleAppErrorData]{
 		ServiceProvider: sp,
 		HandlerFunc:     HandleGetValue,
 		Middlewares:     getDefaultMiddlewares[struct{}, struct{}, GetValueResponse](),

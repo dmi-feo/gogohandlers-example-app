@@ -2,6 +2,8 @@ github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/dmi-feo/gogohandlers v0.0.0-20241227225105-b5f0a78596ea h1:dzNguNATBxeaiQvFj52Bg6IeqCoFjfT7c61ZvjfcaUA=
 github.com/dmi-feo/gogohandlers v0.0.0-20241227225105-b5f0a78596ea/go.mod h1:VXzGduTCWrlIvLTVlOEhd7gPZbxkZ1BfwbzTh5rYC6w=
+github.com/dmi-feo/gogohandlers v0.0.0-20250105224533-a132ac71f480 h1:9EKCvQAODlAV4uJPN4Yec4wEzLCI1XPdGhZOuLCxF/E=
+github.com/dmi-feo/gogohandlers v0.0.0-20250105224533-a132ac71f480/go.mod h1:4xeh+FgspDnsXMQjnlfYsoRMTKGcSHTsZqIxg8Qo2Fs=
 github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
 github.com/google/uuid v1.6.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/gorilla/schema v1.4.1 h1:jUg5hUjCSDZpNGLuXQOgIWGdlgrIdYvgQ0wZtdK1M3E=

@@ -3,7 +3,7 @@ module github.com/dmi-feo/gogohandlers-example-app
 go 1.23.4
 
 require (
-	github.com/dmi-feo/gogohandlers v0.0.0-20241227225105-b5f0a78596ea
+	github.com/dmi-feo/gogohandlers v0.0.0-20250105224533-a132ac71f480
 	github.com/google/uuid v1.6.0
 	github.com/mattn/go-sqlite3 v1.14.24
 	github.com/stretchr/testify v1.10.0
