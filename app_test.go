@@ -25,7 +25,7 @@ func TestHandlePing(t *testing.T) {
 	sp, err := NewExampleAppServiceProvider(dbFilePath, logger)
 	require.NoError(t, err)
 
-	handler := ggh.Uitzicht[ExampleAppServiceProvider, struct{}, PingGetParams, PingResponse, ExampleAppErrorData]{
+	handler := ggh.GGHandler[ExampleAppServiceProvider, struct{}, PingGetParams, PingResponse, ExampleAppErrorData]{
 		ServiceProvider: sp,
 		HandlerFunc:     HandlePing,
 		Middlewares:     getDefaultMiddlewares[struct{}, PingGetParams, PingResponse](),
@@ -84,14 +84,14 @@ func TestHandleGetSetValue(t *testing.T) {
 	sp, err := NewExampleAppServiceProvider(dbFilePath, logger)
 	require.NoError(t, err)
 
-	setValueHandler := ggh.Uitzicht[ExampleAppServiceProvider, SetValueRequest, struct{}, SetValueResponse, ExampleAppErrorData]{
+	setValueHandler := ggh.GGHandler[ExampleAppServiceProvider, SetValueRequest, struct{}, SetValueResponse, ExampleAppErrorData]{
 		ServiceProvider: sp,
 		HandlerFunc:     HandleSetValue,
 		Middlewares:     getDefaultMiddlewares[SetValueRequest, struct{}, SetValueResponse](),
 		Logger:          logger,
 	}
 
-	getValueHandler := ggh.Uitzicht[ExampleAppServiceProvider, struct{}, struct{}, GetValueResponse, ExampleAppErrorData]{
+	getValueHandler := ggh.GGHandler[ExampleAppServiceProvider, struct{}, struct{}, GetValueResponse, ExampleAppErrorData]{
 		ServiceProvider: sp,
 		HandlerFunc:     HandleGetValue,
 		Middlewares:     getDefaultMiddlewares[struct{}, struct{}, GetValueResponse](),
